@@ -1,3 +1,4 @@
+import Advice from './components/Advice';
 import Block from './components/Block';
 import Credentials from './components/Credentials';
 import EmailButton from './components/EmailButton';
@@ -9,32 +10,36 @@ import Savings from './components/Savings';
 import SideProjects from './components/SideProjects';
 import Skills from './components/Skills';
 import { booking, office } from './data/profile';
+import { sections } from './data/sections';
 
 export default function App() {
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6">
       <Header />
       <main>
-        <Block id="work" title="Selected work">
+        <Block {...sections.work}>
           <div className="space-y-20">
             <Savings />
-            <Project {...booking} />
-            <Project title={office.title} summary={office.summary} points={office.points} stack={office.stack}>
+            <Project {...booking} room="backend" />
+            <Project title={office.title} summary={office.summary} points={office.points} stack={office.stack} room="frontend">
               <OfficeView caption={office.caption} />
             </Project>
           </div>
         </Block>
-        <Block id="experience" title="Experience">
+        <Block {...sections.experience}>
           <Experience />
         </Block>
-        <Block id="other" title="Other projects">
+        <Block {...sections.other}>
           <SideProjects />
         </Block>
-        <Block id="skills" title="Skills">
+        <Block {...sections.skills}>
           <Skills />
         </Block>
-        <Block id="credentials" title="Credentials and education">
+        <Block {...sections.credentials}>
           <Credentials />
+        </Block>
+        <Block {...sections.advice}>
+          <Advice />
         </Block>
       </main>
       <footer className="border-t border-rule py-12">

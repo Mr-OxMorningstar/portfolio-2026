@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-// Shared look for the cyber-intel rooms (the boardroom and AtlasOps): palette, glowing and matte materials, box and
+// Shared look for the cyber-intel rooms (the boardroom and the other dark, glowing rooms): palette, glowing and matte materials, box and
 // trim helpers, and a low-fps canvas animator.
 
 export const CYBER = {

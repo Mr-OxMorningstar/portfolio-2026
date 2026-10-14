@@ -1,0 +1,29 @@
+import type { CSSProperties } from 'react';
+
+// The role-room colours from The Office (ROLE_ROOMS in three/office/world/hq/team-room.js, plus Docs & PM).
+// `color` is for fills, bars and markers. `deep` is a darker shade of the same hue that passes WCAG AA as text on the paper background.
+export interface Room {
+  name: string;
+  color: string;
+  deep: string;
+}
+
+export const rooms = {
+  frontend: { name: 'Frontend', color: '#e0409b', deep: '#b0206f' },
+  backend: { name: 'Backend', color: '#2f6feb', deep: '#1f56c4' },
+  qa: { name: 'QA', color: '#22b86a', deep: '#0f7a45' },
+  review: { name: 'Code Review', color: '#7c4dff', deep: '#6234d9' },
+  security: { name: 'Security', color: '#e5383b', deep: '#c42125' },
+  devops: { name: 'DevOps', color: '#f28c1c', deep: '#a35405' },
+  techlead: { name: 'Tech Lead', color: '#f2c21b', deep: '#7d5f00' },
+  docs: { name: 'Docs', color: '#14b8b0', deep: '#0b7a75' },
+} satisfies Record<string, Room>;
+
+export type RoomId = keyof typeof rooms;
+
+// Sets the room colours as CSS variables for everything inside the element.
+export const roomVars = (id: RoomId): CSSProperties =>
+  ({ '--room': rooms[id].color, '--room-deep': rooms[id].deep }) as CSSProperties;
+
+// The rooms shown in The Office view, in left to right order.
+export const TOUR_ROOMS = ['frontend', 'backend', 'qa'] as const satisfies readonly RoomId[];

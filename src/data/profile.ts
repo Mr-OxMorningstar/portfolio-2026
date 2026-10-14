@@ -20,6 +20,8 @@ export interface LedgerRow {
   work: string;
   amount: string;
   evidence: string;
+  // True when the figure comes from billing data rather than a price estimate.
+  measured: boolean;
 }
 
 export interface SideProject {
@@ -79,33 +81,48 @@ export const savings = {
       work: 'Moved three ECS Fargate workers to Lambda and removed an idle Aurora Serverless cluster. The monthly bill went from about US$691 to US$100–130.',
       amount: '561.00–591.00',
       evidence: 'Before from billing; after as stated when the migration finished',
+      measured: false,
     },
     {
       account: 'Company account',
       work: 'Removed seven unused VPC endpoints, turned on Aurora auto-pause, resized an EC2 server and retired an idle database.',
       amount: '311.50',
       evidence: 'Measured in Cost Explorer',
+      measured: true,
     },
     {
       account: 'Company account',
       work: 'Found a DocumentDB cluster with no connections in 74 days and had it deleted.',
       amount: '76.35',
       evidence: 'Its billed daily cost',
+      measured: true,
     },
     {
       account: 'Company account',
       work: 'Retired an unused ERP server, keeping a snapshot, and released an idle Elastic IP.',
       amount: '82.74',
       evidence: 'Priced from AWS rates',
+      measured: false,
     },
     {
       account: 'Client account B',
       work: 'Right-sized Fargate services and removed an orphaned EBS volume and an idle RDS database.',
       amount: '271.06',
       evidence: 'Priced from AWS rates',
+      measured: false,
     },
   ] satisfies LedgerRow[],
-  total: '1,302.65–1,332.65',
+  // Interface text for the ledger controls; the totals themselves are worked out from the rows.
+  controls: {
+    group: 'Which savings to count',
+    measured: 'Measured on the bill only',
+    all: 'Everything applied',
+    hint: 'Bill only counts the changes whose saving shows directly in billing data.',
+    totalMeasured: 'Total, measured on the bill only',
+    totalAll: 'Total, everything applied',
+    notCounted: 'Not counted',
+    bars: 'Bars show the low end of each monthly amount.',
+  },
 };
 
 export const booking = {
@@ -133,6 +150,7 @@ export const office = {
     'Rooms are drawn with plain Three.js geometry and canvas textures, no 3D models.',
   ],
   stack: 'Three.js, JavaScript, Vite, server-sent events',
+  captionHint: 'Click a room, or use the buttons, to fly to it.',
   caption: 'Three of The Office’s team rooms, built with its own room code. Drag to look around. Desk and board states here are sample data.',
 };
 
@@ -220,4 +238,22 @@ export const education = {
   name: 'Diploma in Information Technology',
   school: 'Vaal University of Technology',
   period: '2020 – 2022',
+};
+
+export const advice = {
+  heading: 'Leave me one piece of random advice',
+  prompt: 'You have scrolled all the way down here, so you get a say. Tell me one thing I should know: about code, work, or anything at all. Make it random.',
+  label: 'Your advice',
+  placeholder: 'Write it here, in a sentence or two',
+  submit: 'Share it',
+  privacy: 'This stays in your browser. Nothing is sent or stored.',
+  thanks: 'Thank you. This is what you told me:',
+  again: 'Give another',
+  empty: 'Please write something first.',
+};
+
+export const nav = {
+  label: 'Sections',
+  intro: 'The page is laid out like The Office, one room per section.',
+  room: 'room',
 };

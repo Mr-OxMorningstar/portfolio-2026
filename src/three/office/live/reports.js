@@ -1,8 +1,7 @@
-// Subagent reports pinned to each role room's board. The server (GET /api/office/reports and the `report` feed
-// event) is optional: until it answers, every room simply has no reports. Report fields come from agent output, so
-// they are normalised here and only ever rendered as text.
+// Subagent reports pinned to each role room's board. Report fields come from agent output, so they are normalised
+// here and only ever rendered as text.
 export const BOARD_COUNT = 5; // reports shown on a wall board
-export const STORE_LIMIT = 20; // reports kept (and fetched) per room
+export const STORE_LIMIT = 20; // reports kept per room
 const TEXT_LIMIT = 50_000; // the server sends up to ~20 KB; anything far beyond that is clipped
 
 const str = (value) => (typeof value === 'string' ? value : '');
@@ -57,42 +56,5 @@ export function boardLine(report, now = Date.now(), { nameMax = 22, taskMax = 60
     time: relativeTime(report.at, now),
     task: oneLine(report.task, taskMax) || oneLine(report.text, taskMax) || 'No task recorded',
     failed: report.outcome === 'failed',
-  };
-}
-
-// Per-room report lists. `onChange(role)` fires when a room's list changed.
-export function createReportStore({ roles, onChange }) {
-  const lists = new Map(roles.map((role) => [role, []]));
-
-  const add = (raw) => {
-    const report = normalizeReport(raw);
-    if (!report || !lists.has(report.role)) return;
-    lists.set(report.role, mergeReport(lists.get(report.role), report));
-    onChange?.(report.role);
-  };
-
-  return {
-    list: (role) => lists.get(role) ?? [],
-    add,
-    // Notifies listeners again without a data change (to redraw relative times).
-    touch: (role) => onChange?.(role),
-    // One GET per room; a missing endpoint, bad JSON or a network error just leaves the room empty.
-    async load(role) {
-      try {
-        const res = await fetch(`/api/office/reports?role=${encodeURIComponent(role)}&limit=${STORE_LIMIT}`);
-        if (!res.ok) return;
-        const body = await res.json();
-        if (!Array.isArray(body?.reports)) return;
-        let list = lists.get(role) ?? [];
-        for (const raw of body.reports) {
-          const report = normalizeReport(raw);
-          if (report && report.role === role) list = mergeReport(list, report);
-        }
-        lists.set(role, list);
-        onChange?.(role);
-      } catch {
-        // server not there yet
-      }
-    },
   };
 }

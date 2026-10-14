@@ -5,8 +5,8 @@ export default function Experience() {
     <div className="space-y-12">
       {jobs.map((job) => (
         <article key={job.company}>
-          <h3 className="text-xl font-semibold">{job.company}</h3>
-          <p className="text-sm text-muted">{job.meta}</p>
+          <h3 className="border-l-4 border-(--room) pl-3 text-xl font-semibold">{job.company}</h3>
+          <p className="pl-4 text-sm text-muted">{job.meta}</p>
           <ul className="mt-3 space-y-0.5">
             {job.roles.map((role) => (
               <li key={role.title}>
@@ -14,7 +14,7 @@ export default function Experience() {
               </li>
             ))}
           </ul>
-          <ul className="mt-4 max-w-2xl list-disc space-y-2 pl-5 marker:text-muted">
+          <ul className="mt-4 max-w-2xl list-disc space-y-2 pl-5 marker:text-(--room)">
             {job.highlights.map((point) => (
               <li key={point}>{point}</li>
             ))}
