@@ -101,8 +101,8 @@ export const savings = {
       account: 'Company account',
       work: 'Retired an unused ERP server, keeping a snapshot, and released an idle Elastic IP.',
       amount: '82.74',
-      evidence: 'Priced from AWS rates',
-      measured: false,
+      evidence: 'Confirmed in AWS Cost Explorer',
+      measured: true,
     },
     {
       account: 'Company account',
@@ -135,6 +135,7 @@ export const savings = {
 export const booking = {
   title: 'BringDvibes, a booking app for a DJ business',
   period: 'September 2026 · not live yet',
+  github: 'https://github.com/Mr-OxMorningstar/bringdvibes',
   summary:
     'Clients pick services, see a price and book online. The owner gets the booking straight away and runs bookings, prices and business details from a dashboard.',
   points: [
@@ -148,6 +149,7 @@ export const booking = {
 
 export const office = {
   title: 'The Office, a 3D view of my AI coding agents',
+  github: 'https://github.com/Mr-OxMorningstar/agent-office',
   summary:
     'I work with AI coding agents, and I wanted to see them. The Office is a walkable 3D office in Three.js: each agent session appears as a person at a desk in its team’s room, and the team boards show who is working on what.',
   points: [

@@ -7,12 +7,12 @@ interface ProjectProps {
   summary: string;
   points: string[];
   stack: string;
+  github?: string;
   room: RoomId;
   children?: ReactNode;
 }
 
-// A write-up of one project: what it is, what is worth noticing in it, and what it is built with.
-export default function Project({ title, period, summary, points, stack, room, children }: ProjectProps) {
+export default function Project({ title, period, summary, points, stack, github, room, children }: ProjectProps) {
   return (
     <article style={roomVars(room)}>
       <h3 className="border-l-4 border-(--room) pl-3 text-2xl font-semibold tracking-tight">{title}</h3>
@@ -27,6 +27,11 @@ export default function Project({ title, period, summary, points, stack, room, c
       <p className="mt-5 text-sm text-muted">
         <span className="font-medium text-(--room-deep)">Built with:</span> {stack}
       </p>
+      {github && (
+        <p className="mt-3 text-sm">
+          <a href={github} target="_blank" rel="noreferrer">View on GitHub</a>
+        </p>
+      )}
     </article>
   );
 }
