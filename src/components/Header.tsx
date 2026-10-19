@@ -35,6 +35,11 @@ export default function Header() {
             </a>
           </li>
         ))}
+        <li>
+          <a href="/ntwanano-a-hlungwane-cv.pdf" download>
+            Download CV
+          </a>
+        </li>
       </ul>
 
       <nav aria-label={nav.label} className="mt-10">

@@ -53,10 +53,10 @@ export const profile = {
   location: 'Johannesburg, South Africa',
   email: 'hlungwane822@gmail.com',
   tagline: 'Full-stack engineer. React, TypeScript, Spring Boot, Node.js and AWS.',
-  status: 'Looking for a full-stack engineering role.',
+  status: 'Available for full-stack engineering roles.',
   intro: [
-    'I have been building software professionally since January 2023: web and mobile apps, the APIs behind them, and more and more of the AWS infrastructure they run on.',
-    'At Skywalk Innovations I write features for client products and look after their cloud accounts. The work I am proudest of is below. Where a number is an estimate rather than a measurement, the page says so.',
+    'I cut more than US$1,300 a month from AWS infrastructure across three client accounts. I also build the apps: React and TypeScript front ends, Spring Boot APIs, and the CI/CD pipelines that deploy them.',
+    'At Skywalk Innovations I write features for client products and look after their cloud accounts. Where a number is an estimate rather than a measurement, the page says so.',
   ],
   links: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ntwanano-a-hlungwane-89b84a251' },
@@ -80,8 +80,8 @@ export const savings = {
       account: 'Client account A',
       work: 'Moved three ECS Fargate workers to Lambda and removed an idle Aurora Serverless cluster. The monthly bill went from about US$691 to US$100–130.',
       amount: '561.00–591.00',
-      evidence: 'Before from billing; after as stated when the migration finished',
-      measured: false,
+      evidence: 'Before from billing; after confirmed in AWS Cost Explorer (Oct 2026 forecast ~$153/mo total account)',
+      measured: true,
     },
     {
       account: 'Company account',
@@ -105,21 +105,28 @@ export const savings = {
       measured: false,
     },
     {
+      account: 'Company account',
+      work: 'Backed up and deleted four DynamoDB tables with zero reads and writes over 90 days.',
+      amount: '7.76',
+      evidence: 'Priced from DynamoDB table rates; CloudWatch confirmed 0 reads/writes over 90 days',
+      measured: true,
+    },
+    {
       account: 'Client account B',
       work: 'Right-sized Fargate services and removed an orphaned EBS volume and an idle RDS database.',
       amount: '271.06',
-      evidence: 'Priced from AWS rates',
-      measured: false,
+      evidence: 'Confirmed in AWS Cost Explorer',
+      measured: true,
     },
   ] satisfies LedgerRow[],
   // Interface text for the ledger controls; the totals themselves are worked out from the rows.
   controls: {
     group: 'Which savings to count',
-    measured: 'Measured on the bill only',
-    all: 'Everything applied',
-    hint: 'Bill only counts the changes whose saving shows directly in billing data.',
-    totalMeasured: 'Total, measured on the bill only',
-    totalAll: 'Total, everything applied',
+    measured: 'Confirmed in billing data',
+    all: 'All changes applied',
+    hint: '"Billing data" counts only savings that showed as a confirmed drop in AWS Cost Explorer.',
+    totalMeasured: 'Total, confirmed in billing data',
+    totalAll: 'Total, all changes applied',
     notCounted: 'Not counted',
     bars: 'Bars show the low end of each monthly amount.',
   },
@@ -187,7 +194,7 @@ export const jobs: Job[] = [
 export const sideProjects: SideProject[] = [
   {
     name: 'CV parser',
-    summary: 'Turns an uploaded CV into structured JSON that other automation can use.',
+    summary: 'Built for a client recruitment app. Takes an uploaded CV and returns structured JSON for downstream automation.',
     stack: 'AWS Bedrock, Python',
   },
   {
@@ -198,7 +205,7 @@ export const sideProjects: SideProject[] = [
   {
     name: 'Agent_HQ',
     summary:
-      'A long-term memory for my AI coding agents: session logs, facts and procedures in Google Drive, with an index and integrity checks, so decisions survive between sessions.',
+      'Persistent long-term memory for AI coding sessions — seven memory types (episodic, semantic, procedural and more) across 400+ documents and 20+ project folders in Google Drive, with a salience-scored index and integrity checks. Every session reads from it and writes back to it. Running and actively evolving since early 2026.',
     stack: 'Google Drive, Markdown',
   },
 ];
@@ -254,6 +261,6 @@ export const advice = {
 
 export const nav = {
   label: 'Sections',
-  intro: 'The page is laid out like The Office, one room per section.',
+  intro: 'Jump to a section — each uses a colour from the 3D office below.',
   room: 'room',
 };
