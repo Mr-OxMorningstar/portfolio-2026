@@ -9,14 +9,14 @@ export interface Room {
 }
 
 export const rooms = {
-  frontend: { name: 'Frontend', color: '#e0409b', deep: '#b0206f' },
-  backend: { name: 'Backend', color: '#2f6feb', deep: '#1f56c4' },
-  qa: { name: 'QA', color: '#22b86a', deep: '#0f7a45' },
-  review: { name: 'Code Review', color: '#7c4dff', deep: '#6234d9' },
-  security: { name: 'Security', color: '#e5383b', deep: '#c42125' },
-  devops: { name: 'DevOps', color: '#f28c1c', deep: '#a35405' },
-  techlead: { name: 'Tech Lead', color: '#f2c21b', deep: '#7d5f00' },
-  docs: { name: 'Docs', color: '#14b8b0', deep: '#0b7a75' },
+  frontend: { name: 'Frontend', color: '#e0409b', deep: '#f472b6' },
+  backend: { name: 'Backend', color: '#2f6feb', deep: '#60a5fa' },
+  qa: { name: 'QA', color: '#22b86a', deep: '#34d399' },
+  review: { name: 'Code Review', color: '#7c4dff', deep: '#a78bfa' },
+  security: { name: 'Security', color: '#e5383b', deep: '#f87171' },
+  devops: { name: 'DevOps', color: '#f28c1c', deep: '#fbbf24' },
+  techlead: { name: 'Tech Lead', color: '#f2c21b', deep: '#fde68a' },
+  docs: { name: 'Docs', color: '#14b8b0', deep: '#2dd4bf' },
 } satisfies Record<string, Room>;
 
 export type RoomId = keyof typeof rooms;

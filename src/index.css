@@ -1,20 +1,20 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-paper: #f7f6f2;
-  --color-ink: #18181b;
-  --color-muted: #5b5852;
-  --color-rule: #e0dcd2;
-  --color-accent: #0e6b63;
+  --color-paper: #0b0b12;
+  --color-ink: #eceaf8;
+  --color-muted: #726e8c;
+  --color-rule: #222235;
+  --color-accent: #2dd4bf;
 
   --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
 
 @layer base {
-  html { color-scheme: light; scroll-padding-top: 1.5rem; }
+  html { color-scheme: dark; scroll-padding-top: 1.5rem; }
   body { @apply bg-paper font-sans text-ink antialiased; font-size: 17px; line-height: 1.65; }
   a { @apply underline decoration-rule decoration-1 underline-offset-4 transition-colors hover:decoration-accent; }
-  ::selection { background: #cfe6e2; }
+  ::selection { background: #2dd4bf33; }
   :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 2px; }
 }

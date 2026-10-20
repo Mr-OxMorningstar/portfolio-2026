@@ -14,7 +14,7 @@ import { sections } from './data/sections';
 
 export default function App() {
   return (
-    <div className="mx-auto max-w-4xl px-4 sm:px-6">
+    <div className="px-6 sm:px-10 lg:px-16 xl:px-24">
       <Header />
       <main>
         <Block {...sections.work}>
