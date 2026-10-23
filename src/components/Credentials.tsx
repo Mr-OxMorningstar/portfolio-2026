@@ -28,6 +28,7 @@ export default function Credentials() {
         <p className="mt-1">
           {education.name}, {education.school} <span className="text-muted">· {education.period}</span>
         </p>
+        {'focus' in education && <p className="mt-1 text-sm text-muted">{(education as typeof education & { focus: string }).focus}</p>}
       </div>
 
       <div>

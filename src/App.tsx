@@ -21,7 +21,7 @@ export default function App() {
           <div className="space-y-20">
             <Savings />
             <Project {...booking} room="backend" />
-            <Project title={office.title} summary={office.summary} points={office.points} stack={office.stack} github={office.github} room="frontend">
+            <Project title={office.title} summary={office.summary} points={office.points} stack={office.stack} github={office.github} href={office.href} room="frontend">
               <OfficeView caption={office.caption} />
             </Project>
           </div>

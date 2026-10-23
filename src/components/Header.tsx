@@ -87,8 +87,9 @@ export default function Header() {
             </h1>
 
             <p className="mt-3 text-lg text-muted">{profile.tagline}</p>
+              <p className="mt-1 mb-6 underline text-sm text-muted">{profile.location} · {profile.status}</p>
 
-            <div
+            {/* <div
               ref={statRef}
               style={{ opacity: 0, transform: 'translateY(20px)' }}
               className="mt-8 inline-flex items-start gap-4 border border-rule bg-white/[0.03] px-5 py-4"
@@ -100,10 +101,9 @@ export default function Header() {
                 </p>
                 <p className="mt-1 text-sm text-muted">cut from AWS infrastructure across three client accounts</p>
               </div>
-            </div>
+            </div> */}
 
             <div ref={bodyRef} style={{ opacity: 0, transform: 'translateY(16px)' }}>
-              <p className="mt-6 text-sm text-muted">{profile.location} · {profile.status}</p>
               <div className="mt-5 space-y-4">
                 {profile.intro.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>

@@ -53,10 +53,10 @@ export const profile = {
   location: 'Johannesburg, South Africa',
   email: 'hlungwane822@gmail.com',
   tagline: 'Full-stack engineer. React, TypeScript, Spring Boot, Node.js and AWS.',
-  status: 'Available for full-stack engineering roles.',
+  status: 'Available now · mid-level full-stack or cloud engineering.',
   intro: [
-    'I cut more than US$1,300 a month from AWS infrastructure across three client accounts. I also build the apps: React and TypeScript front ends, Spring Boot APIs, and the CI/CD pipelines that deploy them.',
-    'At Skywalk Innovations I write features for client products and look after their cloud accounts.',
+    'I cut more than $1,300 a month from AWS infrastructure across three client accounts. I also build the apps: React and TypeScript front ends, Spring Boot APIs, and the CI/CD pipelines that deploy them.',
+    'At Skywalk Innovations I build Stripe and Paystack payment flows, maintain Spring Boot APIs with Liquibase and JUnit, and run Azure DevOps CI/CD pipelines — all on client products in production, covered by Playwright end-to-end tests.',
   ],
   links: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ntwanano-a-hlungwane-89b84a251' },
@@ -66,7 +66,7 @@ export const profile = {
 };
 
 export const savings = {
-  title: 'Cutting AWS bills by over US$1,300 a month',
+  title: 'Cutting AWS bills by over $1,300 a month',
   summary:
     'Between September and October 2026 I went through three AWS accounts my team looks after, one of ours and two clients’, and removed what they were paying for but not using.',
   method: [
@@ -133,22 +133,24 @@ export const savings = {
 };
 
 export const booking = {
-  title: 'BringDvibes, a booking app for a DJ business',
-  period: 'September 2026 · not live yet',
-  github: 'https://github.com/Mr-OxMorningstar/bringdvibes',
+  title: "BringDvibes, a two-sided DJ and entertainment booking platform",
+  period: "September 2026",
+  href: "https://staging.dcqcafp467vpf.amplifyapp.com",
+  github: "https://github.com/Mr-OxMorningstar/bringdvibes",
   summary:
-    'Clients pick services, see a price and book online. The owner gets the booking straight away and runs bookings, prices and business details from a dashboard.',
+    "A two-sided entertainment marketplace for South Africa. Clients get instant quotes and book DJs, MCs and sound hire for weddings, clubs, corporate events, festivals and more. Performers sign up as providers and manage their own bookings.",
   points: [
-    'Prices are worked out again in Postgres when a booking is made, so a price edited in the browser is ignored. I tested exactly that.',
-    'Every table has row-level security. Visitors can only book through one database function that checks the request; they never write to a table.',
-    'The owner’s dashboard updates live over Supabase Realtime, with status, private notes, one-tap call, WhatsApp or email, and an editor for services and prices.',
-    'Built as small pull requests stacked on each other, with every schema change as a versioned migration. Hosting is set up for AWS Amplify.',
+    "Prices are recalculated in Postgres at booking time, so a price tampered with in the browser is silently ignored. I tested exactly that.",
+    "Every table has row-level security. Visitors can only book through one database function that checks the request; they never write to a table directly.",
+    "Provider dashboards update live over Supabase Realtime, with booking status, private notes, one-tap call, WhatsApp or email, and an editor for services and prices.",
+    "Built as small pull requests stacked on each other, with every schema change as a versioned migration. Deployed to AWS Amplify.",
   ],
-  stack: 'React, TypeScript, Vite, Supabase (Postgres, row-level security, Realtime, Auth), AWS Amplify',
+  stack: "React, TypeScript, Vite, Supabase (Postgres, row-level security, Realtime, Auth), AWS Amplify",
 };
 
 export const office = {
   title: 'The Office, a 3D view of my AI coding agents',
+  href: 'https://main.d29vqnuouadjj5.amplifyapp.com/',
   github: 'https://github.com/Mr-OxMorningstar/agent-office',
   summary:
     'I work with AI coding agents, and I wanted to see them. The Office is a walkable 3D office in Three.js: each agent session appears as a person at a desk in its team’s room, and the team boards show who is working on what.',
@@ -157,6 +159,7 @@ export const office = {
     'When an agent needs permission for something, it raises a hand, and I can approve or deny it from inside the office.',
     'First-person and overview cameras, collision, and touch controls for phones.',
     'Rooms are drawn with plain Three.js geometry and canvas textures, no 3D models.',
+    'Agents are modelled as first-class entities with presence, state and permissions — not just log lines — making the system a tool for oversight, not just observation.',
   ],
   stack: 'Three.js, JavaScript, Vite, server-sent events',
   captionHint: 'Click a room, or use the buttons, to fly to it.',
@@ -168,11 +171,10 @@ export const jobs: Job[] = [
     company: 'Skywalk Innovations',
     meta: 'Remote · Contract',
     roles: [
-      { title: 'Junior Full-stack Developer', period: 'Jan 2026 – present' },
-      { title: 'Junior Software Engineer', period: 'Dec 2024 – Jun 2026' },
+      { title: 'Mid-level Full-stack Engineer', period: 'Dec 2024 – Present' },
     ],
     highlights: [
-      'Cut more than US$1,300 a month across three AWS accounts, one company and two client, including an ECS-to-Lambda move that lowered one client’s bill by about 82%.',
+      'Cut more than $1,300 a month across three AWS accounts, one company and two client, including an ECS-to-Lambda move that lowered one client’s bill by about 82%.',
       'Built Stripe and Paystack payment flows on Supabase Edge Functions for a multi-tenant React/TypeScript SaaS product, covered by Playwright end-to-end tests.',
       'Delivered features on a Spring Boot and MySQL API, including Liquibase migrations and JUnit tests.',
       'Migrated a production MongoDB database between AWS accounts and supported services on Elastic Beanstalk, Lambda and API Gateway.',
@@ -183,12 +185,12 @@ export const jobs: Job[] = [
   {
     company: 'Aions Creative Technology',
     meta: 'Roodepoort · Full-time',
-    roles: [{ title: 'Full-stack Developer', period: 'Jan 2023 – Dec 2024' }],
+    roles: [{ title: 'Junior Full-stack Developer', period: 'Jan 2023 – Dec 2024' }],
     highlights: [
-      'Built responsive web applications for desktop and mobile with React, Node.js, Express and MongoDB.',
-      'Designed database schemas and backend APIs in Node.js and Python, integrating third-party services.',
-      'Refactored legacy code to current standards and fixed defects found in field testing.',
-      'Wrote Python scripts that automated spreadsheet and admin work, and drafted technical proposals for prospective clients.',
+      'Built frontend and backend features for AEX, a mobile-first investment platform where South African users invest from as little as R50 into startups, using React, Node.js, Express, MongoDB, blockchain and Amazon Lightsail.',
+      'Built the CV ingestion pipeline for Credipple: an AI service reads an uploaded CV and returns structured JSON that auto-populates the user profile, cutting manual data entry to near zero on sign-up.',
+      'Delivered talent-matching and opportunity features on Credipple — registered talent is surfaced to briefs and projects based on their parsed profile and completed skill simulations.',
+      'Designed database schemas and backend APIs in Node.js and Python; refactored legacy code and fixed defects found in field testing.',
     ],
   },
 ];
@@ -207,7 +209,7 @@ export const sideProjects: SideProject[] = [
   {
     name: 'Agent_HQ',
     summary:
-      'Persistent long-term memory for AI coding sessions — seven memory types (episodic, semantic, procedural and more) across 400+ documents and 20+ project folders in Google Drive, with a salience-scored index and integrity checks. Every session reads from it and writes back to it. Running and actively evolving since early 2026.',
+      'Persistent long-term memory layer for AI coding sessions — every session reads structured context and writes findings back, eliminating repeated setup across 20+ active projects. Running since early 2026.',
     stack: 'Google Drive, Markdown',
   },
 ];
@@ -219,7 +221,7 @@ export const skills: SkillGroup[] = [
   { name: 'Data', items: 'PostgreSQL, MySQL, MongoDB, Liquibase' },
   {
     name: 'Cloud and DevOps',
-    items: 'AWS (EC2, VPC, RDS/Aurora, Lambda, ECS, API Gateway, Elastic Beanstalk, S3, Bedrock, Cost Explorer), OpenTofu/Terraform, Azure DevOps, Docker',
+    items: 'AWS (EC2, VPC, RDS/Aurora, Lambda, ECS, API Gateway, Elastic Beanstalk, Lightsail, S3, Bedrock, Cost Explorer), OpenTofu/Terraform, Azure DevOps, Docker, Blockchain',
   },
   { name: 'Testing', items: 'JUnit, Playwright, Jest, JaCoCo' },
   { name: 'Payments and automation', items: 'Stripe, Paystack, n8n' },
@@ -247,6 +249,7 @@ export const education = {
   name: 'Diploma in Information Technology',
   school: 'Vaal University of Technology',
   period: '2020 – 2022',
+  focus: 'Software development and databases.',
 };
 
 export const advice = {
