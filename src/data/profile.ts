@@ -56,7 +56,7 @@ export const profile = {
   status: 'Available for full-stack engineering roles.',
   intro: [
     'I cut more than US$1,300 a month from AWS infrastructure across three client accounts. I also build the apps: React and TypeScript front ends, Spring Boot APIs, and the CI/CD pipelines that deploy them.',
-    'At Skywalk Innovations I write features for client products and look after their cloud accounts. Where a number is an estimate rather than a measurement, the page says so.',
+    'At Skywalk Innovations I write features for client products and look after their cloud accounts.',
   ],
   links: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ntwanano-a-hlungwane-89b84a251' },
