@@ -13,6 +13,7 @@ export interface Job {
   meta: string;
   roles: Role[];
   highlights: string[];
+  projects?: { name: string; href: string }[];
 }
 
 export interface LedgerRow {
@@ -33,6 +34,7 @@ export interface SideProject {
 export interface SkillGroup {
   name: string;
   items: string;
+  secondary?: string;
 }
 
 export interface Badge {
@@ -53,7 +55,7 @@ export const profile = {
   location: 'Johannesburg, South Africa',
   email: 'hlungwane822@gmail.com',
   tagline: 'Full-stack engineer. React, TypeScript, Spring Boot, Node.js and AWS.',
-  status: 'Available now · mid-level full-stack or cloud engineering.',
+  status: 'Available now · mid-level full-stack or cloud engineering · startup or scale-up · remote or Johannesburg.',
   intro: [
     'I cut more than $1,300 a month from AWS infrastructure across three client accounts. I also build the apps: React and TypeScript front ends, Spring Boot APIs, and the CI/CD pipelines that deploy them.',
     'At Skywalk Innovations I build Stripe and Paystack payment flows, maintain Spring Boot APIs with Liquibase and JUnit, and run Azure DevOps CI/CD pipelines — all on client products in production, covered by Playwright end-to-end tests.',
@@ -192,6 +194,10 @@ export const jobs: Job[] = [
       'Delivered talent-matching and opportunity features on Credipple — registered talent is surfaced to briefs and projects based on their parsed profile and completed skill simulations.',
       'Designed database schemas and backend APIs in Node.js and Python; refactored legacy code and fixed defects found in field testing.',
     ],
+    projects: [
+      { name: 'AEX — investment platform', href: 'https://www.wealth.aions.co.za/listings' },
+      { name: 'Credipple — talent platform', href: 'https://app.credipple.com/' },
+    ],
   },
 ];
 
@@ -215,16 +221,17 @@ export const sideProjects: SideProject[] = [
 ];
 
 export const skills: SkillGroup[] = [
-  { name: 'Languages', items: 'TypeScript, JavaScript, Java, Python, SQL' },
-  { name: 'Front end', items: 'React, React Native, Tailwind CSS, Three.js, HTML, CSS' },
-  { name: 'Back end', items: 'Spring Boot, Node.js, Express, Supabase, REST APIs' },
-  { name: 'Data', items: 'PostgreSQL, MySQL, MongoDB, Liquibase' },
+  { name: 'Languages', items: 'TypeScript, JavaScript, Java', secondary: 'Python, SQL' },
+  { name: 'Front end', items: 'React, TypeScript, Tailwind CSS, Three.js', secondary: 'React Native, HTML, CSS' },
+  { name: 'Back end', items: 'Spring Boot, Node.js, Express, Supabase', secondary: 'REST APIs' },
+  { name: 'Data', items: 'PostgreSQL, MySQL, MongoDB', secondary: 'Liquibase' },
   {
     name: 'Cloud and DevOps',
-    items: 'AWS (EC2, VPC, RDS/Aurora, Lambda, ECS, API Gateway, Elastic Beanstalk, Lightsail, S3, Bedrock, Cost Explorer), OpenTofu/Terraform, Azure DevOps, Docker, Blockchain',
+    items: 'AWS (Lambda, ECS, RDS/Aurora, EC2, S3, API Gateway, Elastic Beanstalk, Lightsail, Bedrock, Cost Explorer), OpenTofu/Terraform, Azure DevOps, Docker',
+    secondary: 'Blockchain',
   },
-  { name: 'Testing', items: 'JUnit, Playwright, Jest, JaCoCo' },
-  { name: 'Payments and automation', items: 'Stripe, Paystack, n8n' },
+  { name: 'Testing', items: 'Playwright, JUnit, Jest', secondary: 'JaCoCo' },
+  { name: 'Payments and automation', items: 'Stripe, Paystack', secondary: 'n8n' },
 ];
 
 const credlyBadge = (id: string) => `https://www.credly.com/badges/${id}/public_url`;

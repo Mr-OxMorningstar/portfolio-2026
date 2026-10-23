@@ -19,6 +19,13 @@ export default function Experience() {
               <li key={point}>{point}</li>
             ))}
           </ul>
+          {job.projects && (
+            <p className="mt-3 flex flex-wrap gap-x-5 text-sm">
+              {job.projects.map((p) => (
+                <a key={p.href} href={p.href} target="_blank" rel="noreferrer">{p.name}</a>
+              ))}
+            </p>
+          )}
         </article>
       ))}
     </div>

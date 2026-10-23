@@ -20,7 +20,16 @@ export default function App() {
         <Block {...sections.work}>
           <div className="space-y-20">
             <Savings />
-            <Project {...booking} room="backend" />
+            <Project {...booking} room="backend">
+              <a href={booking.href} target="_blank" rel="noreferrer" className="mt-4 block no-underline">
+                <img
+                  src="/bringdvibes-preview.jpg"
+                  alt="BringDvibes homepage"
+                  className="w-full max-w-2xl rounded border border-rule opacity-90 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              </a>
+            </Project>
             <Project title={office.title} summary={office.summary} points={office.points} stack={office.stack} github={office.github} href={office.href} room="frontend">
               <OfficeView caption={office.caption} />
             </Project>
